@@ -12,20 +12,24 @@ public class GameManager : MonoBehaviour
 
     public GameObject playerPrefab;
     public GameObject ballPrefab;
-
+    
     public Transform SpawnPointPlayerB;
     public Transform SpawnPointBallB;
 
     public PlayerB playerAtual;
     public BallB ballAtual;
+    
     public TextMeshProUGUI contador;
     public TextMeshProUGUI msgFinal;
-    
 
-    void Awake()
+    public bool segurando;
+    private Vector3 offset;
+
+    private void Awake()
     {
         instance = this;
     }
+    
 // Start is called before the first frame update
     void Start()
     {
