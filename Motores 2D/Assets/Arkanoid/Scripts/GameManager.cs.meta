@@ -3,7 +3,15 @@ guid: b9654aa230e7e7740af373cf88ba6574
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - playerPrefab: {fileID: 7527143823932799042, guid: b30e353b1db98fe469cc519e6849cf8b, type: 3}
+  - ballPrefab: {fileID: 6110541468373975062, guid: 987e3078c70e7b84e8d7d6644901936d, type: 3}
+  - SpawnPointPlayerB: {instanceID: 0}
+  - SpawnPointBallB: {instanceID: 0}
+  - playerAtual: {instanceID: 0}
+  - ballAtual: {instanceID: 0}
+  - contador: {instanceID: 0}
+  - msgFinal: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
