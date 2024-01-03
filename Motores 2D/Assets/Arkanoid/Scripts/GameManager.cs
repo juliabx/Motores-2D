@@ -20,7 +20,9 @@ public class GameManager : MonoBehaviour
     public BallB ballAtual;
     public TextMeshProUGUI contador;
     public TextMeshProUGUI msgFinal;
-    
+
+    public bool segurando;
+    private Vector3 offset;
 
     void Awake()
     {
@@ -30,20 +32,38 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SpawnarNovoJogador();
+        AtualizarContador();
     }
 
+    public void AtualizarContador()
+    {
+        contador.text = $"Vidas: {vidas}";
+    }
     public void SpawnarNovoJogador()
     {
         GameObject playerObj = 
             Instantiate(playerPrefab, SpawnPointPlayerB.position, Quaternion.identity);
         GameObject ballObj = 
             Instantiate(ballPrefab, SpawnPointBallB.position, Quaternion.identity);
+
+        playerAtual = playerObj.GetComponent<PlayerB>();
+        ballAtual = ballObj.GetComponent<BallB>();
+
+        segurando = true;
+        offset = playerAtual.transform.position - ballAtual.transform.position;
     }
     // Start is called before the first frame update
    
     // Update is called once per frame
     void Update()
     {
-        
+        if (segurando)
+        {
+            ballAtual.transform.position = playerAtual.transform.position - offset;
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                ballAtual.DispararBolinha();
+            }
+        }
     }
 }
